@@ -57,6 +57,24 @@ def print_items(inventory):
 
     print("========================================")
 
+def calculate_grand_total(inventory, customer_name, senior_id, is_senior):
+    grand_total = 0
+
+    for item in inventory:
+        price = float(item[1])
+        quantity = int(item[2])
+        grand_total += price * quantity
+
+    if is_senior:
+        grand_total = grand_total - (grand_total * 0.10)
+    else:
+        senior_id = "N/A"
+    
+    print(f"Customer Name: {customer_name}")
+    print(f"Senior ID: {senior_id}")
+    print(f"Your Grand Total is: {grand_total}")
+    print("========================================\n")
+
 def main_execution():
     print("Welcome! Please enter your order")
     orders = collect_orders()
@@ -75,8 +93,6 @@ def main_execution():
             
     is_senior = senior_id != ""
     print_items(orders)
+    calculate_grand_total(orders, customer_name, senior_id, is_senior)
 
 main_execution()
-
-# TODO: (John Matthew) Call all necessary functions and 
-# calculate the grand total
