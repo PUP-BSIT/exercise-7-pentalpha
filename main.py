@@ -18,8 +18,24 @@ def get_product():
     item =  [product_name, product_price, product_quantity]
     return item
 
-# TODO: (Angela) Create a loop to ask the user for input until all 
-# orders are complete
+def collect_orders():
+    inventory = []
+    item = get_product()
+    inventory.append(item)
+
+    while True:
+        continue_input = input("\nDo you want to add another item? (y/n): ")
+        continue_order = continue_input.strip().lower()
+        if continue_order == "y":
+            item = get_product()
+            inventory.append(item)
+        elif continue_order == "n":
+            break
+        else:
+            print("Invalid input. Please enter 'y' or 'n'.")
+            continue
+    
+    return inventory
 
 # TODO: (Gabrielle) Ask for the customer name and the senior id 
 
