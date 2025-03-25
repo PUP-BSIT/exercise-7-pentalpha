@@ -42,6 +42,21 @@ def collect_orders():
     
     return inventory
 
+def print_items(inventory):
+    print("\nOrder Summary:")
+    print("========================================")
+    print("Product Name     | Price   | Qty | Total")
+    print("========================================")
+
+    for item in inventory:
+        product_name = item[0]
+        price = float(item[1])
+        quantity = int(item[2])
+        total = price * quantity
+        print(f"{product_name} | {price:.2f} | {quantity} | {total:.2f}")
+
+    print("========================================")
+
 def main_execution():
     print("Welcome! Please enter your order")
     orders = collect_orders()
@@ -55,10 +70,9 @@ def main_execution():
             print("Please input a valid Senior ID Number.")
             
     is_senior = senior_id != ""
+    print_items(orders)
 
 main_execution()
-
-# TODO: (John Mark) Print the items and calculate the total
 
 # TODO: (John Matthew) Call all necessary functions and 
 # calculate the grand total
