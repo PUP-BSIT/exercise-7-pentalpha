@@ -61,8 +61,12 @@ def main_execution():
     print("Welcome! Please enter your order")
     orders = collect_orders()
 
-    customer_name = input("Enter Customer Name: ")
     while True:
+        customer_name = input("Enter Customer Name: ")
+        if customer_name == "":
+            print("Invalid input. Enter a valid name.")
+            continue
+
         senior_id = input("Enter Senior ID Number (leave blank if none): ")
         if senior_id.isdigit() or senior_id == "":
             break
