@@ -1,10 +1,10 @@
 def get_product():
     while True:
         product_name = input("Enter product: ")
-        if product_name.isalpha():
-            break 
-        else:
+        if product_name.isdigit():
             print("Invalid input. Enter a word")
+        else:
+            break
 
     while True:
         product_price = float(input("Product price: "))
