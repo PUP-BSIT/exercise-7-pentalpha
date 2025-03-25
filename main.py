@@ -42,7 +42,21 @@ def collect_orders():
     
     return inventory
 
-# TODO: (Gabrielle) Ask for the customer name and the senior id 
+def main_execution():
+    print("Welcome! Please enter your order")
+    orders = collect_orders()
+
+    customer_name = input("Enter Customer Name: ")
+    while True:
+        senior_id = input("Enter Senior ID Number (leave blank if none): ")
+        if senior_id.isdigit() or senior_id == "":
+            break
+        else:
+            print("Please input a valid Senior ID Number.")
+            
+    is_senior = senior_id != ""
+
+main_execution()
 
 # TODO: (John Mark) Print the items and calculate the total
 
